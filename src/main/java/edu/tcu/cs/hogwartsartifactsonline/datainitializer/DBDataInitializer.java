@@ -1,13 +1,17 @@
 package edu.tcu.cs.hogwartsartifactsonline.datainitializer;
 
 import edu.tcu.cs.hogwartsartifactsonline.dao.ArtifactDao;
+import edu.tcu.cs.hogwartsartifactsonline.dao.WizardDao;
 import edu.tcu.cs.hogwartsartifactsonline.domain.Artifact;
+import edu.tcu.cs.hogwartsartifactsonline.domain.Wizard;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DBDataInitializer implements CommandLineRunner {
     private ArtifactDao artifactDao;
+
+    private WizardDao wizardDao;
 
     public DBDataInitializer(ArtifactDao artifactDao) {
         this.artifactDao = artifactDao;
@@ -50,6 +54,7 @@ public class DBDataInitializer implements CommandLineRunner {
         a6.setName("number 6");
         a6.setDescription("A Deluminator is a device invented by Albus Dumbledore");
         a6.setImageURL("imageUrl");
+        /*
 
         artifactDao.save(a1);
         artifactDao.save(a2);
@@ -57,6 +62,31 @@ public class DBDataInitializer implements CommandLineRunner {
         artifactDao.save(a4);
         artifactDao.save(a5);
         artifactDao.save(a6);
+        */
+         // if you use cascade, do not have to do this
+
+        Wizard w1 = new Wizard();
+        w1.setName("Albus Dumbledore");
+        w1.addArtifact(a1);
+        w1.addArtifact(a3);
+
+
+        Wizard w2 = new Wizard();
+        w2.setName("Harry Potter");
+        w2.addArtifact(a2);
+        w2.addArtifact(a4);
+
+        Wizard w3 = new Wizard();
+        w3.setName("Neville Longbottom");
+        w3.addArtifact(a5);
+
+        wizardDao.save(w1);
+        wizardDao.save(w2);
+        wizardDao.save(w3);
+        // since no owner
+        artifactDao.save(a6);
+
+
 
     }
 
