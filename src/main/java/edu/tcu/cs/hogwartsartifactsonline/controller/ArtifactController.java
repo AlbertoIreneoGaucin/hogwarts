@@ -19,13 +19,13 @@ public class ArtifactController {
 
     @GetMapping
     public Result findAll(){
-        List<Artifact> all = artifactService.findALl();
+        List<Artifact> all = artifactService.findAll();
         Result result = new Result(true, StatusCode.SUCCESS, "Find All Success", all);
         // behind the scenes Spring Boot will automatically serialize it into JSON
         return result;
 
     }
-    @GetMapping("/{artifactId")
+    @GetMapping("/{artifactId}")
     public Result findById(@PathVariable String artifactId){
         return new Result(true, StatusCode.SUCCESS, "Find one success", artifactService.findById(artifactId));
 
