@@ -1,12 +1,13 @@
 package edu.tcu.cs.hogwartsartifactsonline.domain;
-
 public class Result {
-    private boolean flag;
-    private Integer code;
-    private String message;
-    private Object data;
+    private boolean flag; //true: success, false: not success
+    private Integer code; //return status code. e.g. 200
+    private String message; // message
+    private Object data; //return the requested data, in this case, a PageBean object
 
-    public Result(){}
+    public Result() {
+    }
+
     public Result(boolean flag, Integer code, String message) {
         this.flag = flag;
         this.code = code;
@@ -19,4 +20,37 @@ public class Result {
         this.message = message;
         this.data = data;
     }
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
 }
+

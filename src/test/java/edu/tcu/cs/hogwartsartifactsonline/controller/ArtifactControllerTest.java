@@ -56,6 +56,7 @@ class ArtifactControllerTest {
     void tearDown() {
     }
 
+    /*
     @Test
     void findAll() throws Exception {
         when(artifactService.findAll()).thenReturn(list);
@@ -65,6 +66,8 @@ class ArtifactControllerTest {
                 .andExpect(jsonPath("$.data[1].id").value("1250808601736515585"))
                 .andExpect(jsonPath("$.data[1].name").value("Invisibility Cloak"));
     }
+    */
+
 
     @Test
     void findById() {
